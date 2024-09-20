@@ -1,0 +1,222 @@
+/* Base body styles for both day and night modes */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #D3F3B4; /* Default background color for day mode */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for theme changes */
+}
+
+body.dark-mode {
+    background-color: #2E2E2E; /* Background color for night mode */
+    color: #FFFFFF; /* Text color for night mode */
+}
+
+/* Header styling for both day and night modes */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #B0E18C; /* Light green background for header */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode header {
+    background-color: #4A4A4A; /* Dark background for night mode header */
+}
+
+/* Menu icon (left) */
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Settings icon (right) */
+.icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Container styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content vertically */
+    flex: 1;
+    padding: 20px;
+}
+
+/* Profile and contact box styles */
+.profile-box, .contact-box {
+    background-color: #70C48D; /* Green background color for the box */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center; /* Center text horizontally */
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    margin-top: 20px; /* Space between header and boxes */
+}
+
+body.dark-mode .profile-box, body.dark-mode .contact-box {
+    background-color: #3A3A3A; /* Dark background for night mode boxes */
+}
+
+.profile-header, .contact-header {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.profile-icon img {
+    width: 100px;
+    height: 100px; /* Ensure image height is equal to width for centering */
+    border-radius: 50%;
+    background-color: #000;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.profile-details {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.profile-details div {
+    margin-bottom: 5px;
+}
+
+.contact-header {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.company, .phone {
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* Popup Menu (left side) */
+.popup-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #9CDBA6; /* Light green background for menu */
+    padding: 20px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 300px;
+    text-align: center;
+}
+
+body.dark-mode .popup-content {
+    background-color: #4A4A4A; /* Dark background for night mode popup */
+}
+
+/* Menu items */
+.popup-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.popup-content li {
+    font-size: 18px;
+    color: #000; /* Black text for menu items */
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.popup-content li:hover {
+    color: #fff;
+    background-color: #70C48D;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+body.dark-mode .popup-content li {
+    color: #FFFFFF; /* White text for night mode menu items */
+}
+
+body.dark-mode .popup-content li:hover {
+    background-color: #6D6D6D; /* Darker background for hover in night mode */
+}
+
+/* Settings Popup (right side) */
+.settings-popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #FFFFFF;
+    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box; /* Ensure padding is included in width/height */
+}
+
+body.dark-mode .settings-popup {
+    background-color: #3A3A3A; /* Dark background for night mode settings */
+}
+
+.settings-popup .close-button {
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.settings-popup .title {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.settings-popup .points {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.settings-popup .divider {
+    height: 1px;
+    background-color: #ccc;
+    margin-bottom: 20px;
+}
+
+body.dark-mode .settings-popup .divider {
+    background-color: #6D6D6D; /* Dark divider in night mode */
+}
+
+.settings-popup .settings-item {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.settings-popup .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+#theme-toggle-icon {
+    font-size: 24px;
+    cursor: pointer;
+}

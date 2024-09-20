@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redeem Page</title>
+    <link rel="stylesheet" href="DWF RE.css">
+    <script src="DWF RE.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="menu-icon" id="menu-icon">☰</div>
+    </header>
+
+    <div class="redeem-header">
+        แลกรับของรางวัล <!-- This is Thai for "Redeem Rewards" -->
+    </div>
+
+    <div class="redeem-container">
+        <div class="redeem-content" id="redeem-content">
+            <!-- Items will be dynamically generated here -->
+        </div>
+    </div>
+
+    <div class="pagination">
+        <button id="prev-page" disabled>&lt; Prev</button>
+        <button id="next-page">Next &gt;</button>
+    </div>
+
+    <!-- Popup Menu -->
+    <div class="popup-menu" id="popup-menu">
+        <div class="popup-content">
+            <ul>
+                <li onclick="navigateTo('DWF Home.html')">Home</li>
+                <li onclick="navigateTo('DWF pf.html')">Profile</li>
+                <li onclick="navigateTo('DWF Progest.html')">Progest</li>
+                <li onclick="navigateTo('DWF RE.html')">Redeem</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

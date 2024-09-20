@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="DWF Home.css"> <!-- Link to external CSS -->
+    <script src="DWF Home.js" defer></script> <!-- Link to external JS -->
+</head>
+<body>
+    <header>
+        <div class="menu-icon" id="menu-icon">☰</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        <div class="icons">
+            <div class="icon" id="chat-icon">💬</div>
+            <div class="icon" id="settings-icon">⚙️</div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="welcome-box">
+            <div class="welcome-message">Welcome to DWF!</div>
+            <!-- Icon Buttons placed inside the welcome-box -->
+            <div class="icon-container">
+                <div class="icon-button" style="background-image: url('host.jpg');"></div>
+                <div class="icon-button" style="background-image: url('rest.jpg');"></div>
+                <div class="icon-button" style="background-image: url('school.jpg');"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Popup Menu -->
+    <div class="popup-menu" id="popup-menu">
+        <div class="popup-content">
+            <ul>
+                <li onclick="navigateTo('DWF Home.html')">Home</li>
+                <li onclick="navigateTo('DWF pf.html')">Profile</li>
+                <li onclick="navigateTo('DWF Progest.html')">Progest</li>
+                <li onclick="navigateTo('DWF RE.html')">Redeem</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Settings Popup -->
+    <div class="settings-popup" id="settings-popup">
+        <div class="close-button" id="close-settings">✖️</div>
+        <div class="title">Settings</div>
+        <div class="points">Your Points: 1234</div>
+        <div class="divider"></div>
+        <div class="settings-item">Profile</div>
+        <div class="settings-item theme-toggle" id="theme-toggle">🌙 Dark Mode</div>
+    </div>
+</body>
+</html>

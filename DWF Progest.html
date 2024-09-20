@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DWF Progest</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file if any -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        /* Popup Menu Styles */
+        .popup-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            background-color: #333;
+            color: white;
+            width: 250px;
+            height: 100%;
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            display: none;
+        }
+        .popup-menu .popup-content {
+            width: 100%;
+        }
+        .popup-menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .popup-menu ul li {
+            padding: 15px;
+            border-bottom: 1px solid #444;
+            cursor: pointer;
+        }
+        .popup-menu ul li:hover {
+            background-color: #555;
+        }
+        .menu-icon {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+    </style>
+</head>
+<body>
+    <!-- Popup Menu -->
+    <div class="popup-menu" id="popup-menu">
+        <div class="popup-content">
+            <ul>
+                <li onclick="navigateTo('DWF Home.html')">Home</li>
+                <li onclick="navigateTo('DWF pf.html')">Profile</li>
+                <li onclick="navigateTo('DWF Progest.html')">Progest</li>
+                <li onclick="navigateTo('DWF RE.html')">Redeem</li>
+            </ul>
+        </div>
+    </div>
+    <button id="menu-icon" class="menu-icon">Menu</button>
+    
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            const defaultLocation = { lat: -34.397, lng: 150.644 };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: defaultLocation,
+            });
+
+            const marker = new google.maps.Marker({
+                position: defaultLocation,
+                map: map,
+                title: "You are here",
+            });
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                        };
+
+                        map.setCenter(pos);
+                        marker.setPosition(pos);
+                        map.setZoom(15);
+                    },
+                    () => {
+                        handleLocationError(true, map.getCenter());
+                    }
+                );
+            } else {
+                handleLocationError(false, map.getCenter());
+            }
+        }
+
+        function handleLocationError(browserHasGeolocation, pos) {
+            new google.maps.InfoWindow({
+                content: browserHasGeolocation
+                    ? "Error: The Geolocation service failed."
+                    : "Error: Your browser doesn't support geolocation.",
+                position: pos,
+            }).open(map);
+        }
+
+        const script = document.createElement("script");
+        script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
+        script.async = true;
+        document.head.appendChild(script);
+
+        // Popup menu functionality
+        const menuIcon = document.getElementById('menu-icon');
+        const popupMenu = document.getElementById('popup-menu');
+
+        menuIcon.addEventListener('click', () => {
+            popupMenu.style.display = 'flex';
+        });
+
+        popupMenu.addEventListener('click', (e) => {
+            if (e.target === popupMenu || e.target.tagName === 'LI') {
+                popupMenu.style.display = 'none';
+            }
+        });
+
+        function navigateTo(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
